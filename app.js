@@ -8,9 +8,9 @@ app.get("/", (req, res) => {
   res.json({ name: "Symptom Checker", version: "1.0.0" });
 });
 
-app.get("/getSymptoms/:string", (req, res) => {
-  let result = model.getSymptom(req.params.string);
-  res.json(result);
+app.get("/getSymptoms/:string", async (req, res) => {
+  let result = await model.getSymptom(req.params.string);
+  res.json(result.hits.hits);
 });
 
 const port = process.env.PORT || 3000;

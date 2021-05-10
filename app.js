@@ -13,7 +13,7 @@ app.get("/getSymptoms/:string", async (req, res) => {
   res.json(result.hits.hits);
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
-  console.log(`App is Listening on port ${port}`);
+  console.log(`App watching on port ${port}`);
 });

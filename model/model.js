@@ -1,6 +1,10 @@
 const searchClient = require("../config");
 const client = searchClient.client;
 
+const Symptoms = {
+  getSymptom: search(string),
+};
+
 const search = (string) => {
   return client.search({
     index: "symptoms",
@@ -10,12 +14,4 @@ const search = (string) => {
   });
 };
 
-class symptomChecker {
-  getSymptom(string) {
-    return search(string);
-  }
-}
-
-const model = new symptomChecker();
-
-module.exports = { getSymptom: model.getSymptom };
+module.exports = { Symptoms };

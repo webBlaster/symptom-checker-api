@@ -4,14 +4,14 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-const { Symptoms } = model;
+const { searchForSymptom } = model;
 
 app.get("/", (req, res) => {
   res.json({ name: "Symptom Checker", version: "1.0.0" });
 });
 
-app.get("/getSymptoms/:string", async (req, res) => {
-  let result = await Symptoms.get(req.params.string);
+app.get("/symptom/:string", async (req, res) => {
+  let result = await searchForSymptom(req.params.string);
   res.json(result.hits.hits);
 });
 

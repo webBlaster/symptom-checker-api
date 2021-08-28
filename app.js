@@ -1,4 +1,4 @@
-const model = require("./model/model.js");
+const model = require("./model/search.js");
 const express = require("express");
 const cors = require("cors");
 const app = express();

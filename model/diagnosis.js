@@ -20,7 +20,7 @@ const fetchAccessToken = async () => {
     method: "POST",
     headers: {
       Authorization: `Bearer ${username}:${hashedCred}`,
-      Host: "sandbox-authservice.priaid.ch",
+      Host: "authservice.priaid.ch",
     },
   }).catch((error) => {
     console.log(error);

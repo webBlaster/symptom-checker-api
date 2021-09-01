@@ -1,5 +1,4 @@
-const searchClient = require("../config");
-const client = searchClient.client;
+const client = require("../config").ESclient;
 
 const searchForSymptom = (string) => {
   return client.search({

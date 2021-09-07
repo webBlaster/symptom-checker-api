@@ -7,6 +7,7 @@ const history = require("./functions/history.js");
 const express = require("express");
 const cors = require("cors");
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 const { searchForSymptom } = search;
@@ -19,9 +20,9 @@ app.get("/", (req, res) => {
   res.json({ name: "Symptom Checker", version: "1.0.0" });
 });
 
-app.get("/login", signin);
+app.post("/login", signin);
 
-app.get("/register", register);
+app.post("/register", register);
 
 app.get("/symptom/:string", searchForSymptom);
 

@@ -26,7 +26,7 @@ app.post("/register", register);
 
 app.get("/symptom/:string", searchForSymptom);
 
-app.get("/diagnose/:symptoms/:gender/:year/id", diagnose);
+app.get("/diagnose/:symptoms/:gender/:year/:id", diagnose);
 
 app.get("/history/:id", getHistory);
 

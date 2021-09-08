@@ -74,10 +74,14 @@ const diagnose = async (req, res) => {
       //save in history
       let userId = id;
       // Create user in our database
-      History.create({
-        user_id: userId,
-        diagnosis_array: diagnosis,
-      });
+      try {
+        History.create({
+          user_id: userId,
+          diagnosis_array: diagnosis,
+        });
+      } catch (error) {
+        console.log(error);
+      }
 
       res.json(diagnosis);
     }

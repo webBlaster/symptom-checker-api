@@ -77,7 +77,7 @@ const diagnose = async (req, res) => {
       try {
         History.create({
           user_id: userId,
-          diagnosis_array: diagnosis,
+          diagnosis_array: [JSON.stringify(diagnosis)],
         });
       } catch (error) {
         console.log(error);

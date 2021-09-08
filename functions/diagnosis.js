@@ -1,3 +1,4 @@
+const History = require("../model/history.js").History;
 const fetch = require("node-fetch");
 //Cryptography module
 const crypto = require("crypto");
@@ -50,7 +51,7 @@ const getDiagnosis = async (
 };
 
 const diagnose = async (req, res) => {
-  const { symptoms, gender, year } = req.params;
+  const { symptoms, gender, year, id } = req.params;
   let symptomList = symptoms;
   client.get("Bearer-Token", async (error, data) => {
     if (data) {
@@ -70,6 +71,14 @@ const diagnose = async (req, res) => {
         gender,
         year
       );
+      //save in history
+      let userId = id;
+      // Create user in our database
+      History.create({
+        user_id: userId,
+        diagnosis_array: diagnosis,
+      });
+
       res.json(diagnosis);
     }
   });
